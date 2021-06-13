@@ -2,9 +2,9 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-const {
-  DB_USER, DB_PASSWORD, DB_HOST,
-} = process.env;
+const fetch= require('node-fetch');
+const { PassThrough } = require('stream');
+const {DB_USER, DB_PASSWORD, DB_HOST} = process.env;
 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {
   logging: false, // set to console.log to see the raw SQL queries
@@ -30,10 +30,29 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Pokemon } = sequelize.models;
+const { Country, Tourism } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
+ Country.belongsToMany(Tourism,{through: 'activities'}); 
+ Tourism.belongsToMany(Country,{through: 'activities'});
+
+
+// fetch('https://restcountries.eu/rest/v2/all')
+//  .then(response => response.json())
+//  .then(contenido =>contenido.map(el=>Country.create({
+//          codigo: el.alpha3Code,
+//          name: el.name,
+//          bandera: el.flag,
+//          region: el.region,
+//          capital:el.capital,
+//          subregion: el.subregion,
+//          poblacion: el.population
+//    })));
+
+
+
+
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
