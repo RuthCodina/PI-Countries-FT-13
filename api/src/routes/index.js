@@ -29,6 +29,7 @@ const router = Router();
 
 router.use('/countries', countries);
 router.use('/activity', tourism);
+// router.use('/all', countries)
 
 
 

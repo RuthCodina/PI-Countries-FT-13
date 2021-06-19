@@ -9,11 +9,12 @@ const router = Router();
 
 const { Country, Tourism } = require('../db')
 
+
 router.get('/', async (req,res)=>{
    
   let countries;
-  let {name}=req.query// tendría que llegar un id de paginación del front,
-
+  let {name, page}=req.query// tendría que llegar un id de paginación del front,
+  
   if(name){
     countries= await Country.findAll({
      where: {
@@ -26,13 +27,22 @@ router.get('/', async (req,res)=>{
     return res.status(200).json(countries)
   }
    else {
-    countries = await Country.findAll({limit:10})
-      return  res.status(200).json(countries)
-
+    
+    
+    countries = await Country.findAndCountAll({offset:page*10, limit:10})
+    
+      return  res.status(200).json({content:countries.rows, totalPages: Math.ceil(countries.count/10)})
+     
   }; 
   
  })
 
+router.get('/all', async(req,res)=>{
+  let country= await Country.findAll(
+    {include:[Tourism]}
+  );
+  return res.status(200).json(country)
+})
 
 router.get('/:id', async (req,res)=>{
 
@@ -44,6 +54,8 @@ router.get('/:id', async (req,res)=>{
     })
   return res.status(200).json(country)
 })
+
+
 
 
 
