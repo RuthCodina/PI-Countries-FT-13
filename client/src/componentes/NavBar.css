@@ -1,0 +1,41 @@
+.color1 {color: #001b3b;}
+.color2 {color: #003f8a;}
+.color3 {color: #00bfff;}
+.color4 {color: #15fdc6;}
+.color5 {color: #ffffa4;}
+
+.navbar {
+    height: 56px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color:#ffffa4 ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    height: 100%;
+}
+
+
+.list-item {
+    margin: 0;
+    display: flex;
+    height: 100%;
+    width: auto;
+    align-items: center;
+}
+
+.list-item:hover {
+    background-color: #808080;
+    color: white;
+}
