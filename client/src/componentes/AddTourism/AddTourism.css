@@ -1,0 +1,104 @@
+.color1 {color: #001b3b;}
+.color2 {color: #003f8a;}
+.color3 {color: #00bfff;}
+.color4 {color: #15fdc6;}
+.color5 {color: #ffffa4;}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+.formAddTourism{
+  width:600px;
+  border-radius: 8px;
+  background:  rgba(0, 0, 0, 0.5);
+  padding:30 px;
+  margin:auto;
+  margin-top: 10px;
+  font-family: 'Alegreya';
+  color: #ffffa4;
+  font-size: 20px;
+  /* column-count: 2; */
+}
+.formAddTourism input{
+  margin:10px;
+  padding: 5px;
+}
+.formAddTourism h2{
+  color:#003f8a;
+  display: block;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.formAddTourism select{
+  margin:10px;
+  padding: 5px;
+}
+
+.formAddTourism button{
+  padding: 5px;
+  margin-bottom: 30px;
+  padding:3px;
+  font-family: 'Alegreya';
+  font-size: 15px;
+  margin: 3px;
+}
+
+.formAddTourism .submit{
+  margin: 2rem;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.formAddTourism button:hover,
+.formAddTourism button:active{
+  color:#ffffa4;
+  background: #003f8a;
+}
+p.warning{
+  color:white;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+  font-size: 10px;
+}
+input.warning{
+  border:3px solid red;
+}
+select.warning{
+  border:3px solid red;
+}
+
+
+
+ .codigos ul{
+  width:50px;
+  height:30px;
+  border-radius: 8px;
+  display:inline;
+  margin:3px; 
+   color:#ffffa4;
+   padding: 0.2rem;
+   background: rgba(31, 155, 172, 0.5);
+ }
+
+
+
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+.form{
+    width:400px;
+    border-radius: 8px;
+    background:  rgba(0, 0, 0, 0.5);
+    padding:30 px;
+    margin:auto;
+    margin-top: 100px;
+    font-family: 'Alegreya';
+    color: #ffffa4;
+    font-size: 20px;
+}

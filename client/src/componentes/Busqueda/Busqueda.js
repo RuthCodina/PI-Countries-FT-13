@@ -1,7 +1,7 @@
-import { findCountries, getAllCountries, getByRegion, setCountriesAZ, setCountriesZA, setCountriesByInhabitansDESC, setCountriesByInhabitansASC, getByTourism } from "../actions";
+import { findCountries, getAllCountries, getByRegion, setCountriesAZ, setCountriesZA, setCountriesByInhabitansDESC, setCountriesByInhabitansASC, getByTourism } from "../../actions/index";
 import {connect} from "react-redux";
 import React, {useState} from 'react';
-import Container from "./Container";
+import Container from "../Container/Container";
 import "./Busqueda.css"
 
 export function Busqueda(props){
@@ -57,17 +57,17 @@ export function Busqueda(props){
 
   return(
     <>
-     <form className='form'>Busca el País <br></br>
+     <form className='form'><h1>Busca el País</h1><br></br> 
         <label>Por Nombre </label>       
         <input name='name' type='text' onChange={handleName} value={input.inputName} placeholder='¿Qué país quieres ver?'></input> 
-        <button  onClick={handleSubmitName}>go</button>
+        <button  onClick={handleSubmitName}>go</button><br/>
         <label>Por Continente </label>
         <input name='region' type='text' onChange={handleRegion} value={input.inputRegion} placeholder='¿Qué continente quieres ver?'></input> 
-        <button onClick={handleSubmitRegion}>go</button>
+        <button onClick={handleSubmitRegion}>go</button><br/>
         <label>Por Tourismo</label>
         <input name='tourism' type='text' onChange={handleTourism} value={input.inputTourism} placeholder='¿Qué actividad quieres hacer?'></input>
-        <button onClick={handleByTourism}>go</button>
-        <form>Organiza tu Busqueda<br></br>
+        <button onClick={handleByTourism}>go</button><br/>
+        <form className= 'formHijo'>Organiza tu Busqueda<br></br>
           <button onClick={handleCountriesAZ}>Ordenar AZ</button>
           <button onClick={handleCountriesZA}>Ordenar ZA</button>
           <button onClick={handleCountriesInhabitansASC}>Población ASC</button> 
@@ -77,7 +77,6 @@ export function Busqueda(props){
      <Container/>
     </>
   )
-
 
 }
 

@@ -67,7 +67,8 @@ const initialState = {
       case GET_BY_TOURISM:
           return{
            ...state,
-           countrySearched: state.allCountries && state.allCountries.filter(country =>country.tourisms.filter(el => el.nombre=== action.tourism))
+           countrySearched: state.allCountries.filter((country)=>{
+                            return  country.tourisms.some((el)=> el.nombre === action.tourism)})   
            }  
     default:
       return state;

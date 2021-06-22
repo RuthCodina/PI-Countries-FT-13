@@ -1,0 +1,52 @@
+.color1 {color: #001b3b;}
+.color2 {color: #003f8a;}
+.color3 {color: #00bfff;}
+.color4 {color: #15fdc6;}
+.color5 {color: #ffffa4;}
+
+h1{
+    font-family: 'Alegreya';
+    font-size: 40px;
+    margin:3px;
+}
+ .details{
+    width:600px;
+    border-radius: 8px;
+    background:  rgba(0, 0, 0, 0.5);
+    padding:30 px;
+    margin:auto;
+    margin-top: 10px;
+    font-family: 'Alegreya';
+    color: #ffffa4;
+    font-size: 30px;
+    /* column-count: 2; */
+}
+
+.details img{
+    width:330px;
+    height: 220px;
+    margin: 1rem;
+    
+}
+
+.details .title{
+    color: black;
+    margin:10px;
+}
+.details .activityCard{
+    width:200px;
+    border-radius: 8px;
+    background:  rgba(233, 234, 235, 0.5);
+    padding:30 px;
+    margin:auto;
+    margin-top: 10px;
+    font-family: 'Alegreya';
+    color: #003f8a;
+    font-size: 1rem;
+    padding: 10px;
+}
+
+.details .activityCard .n{
+    color:white;
+}
+

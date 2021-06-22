@@ -5,17 +5,17 @@ import './paginacion.css';
 
 function renderData(countries){
     return(
-        <ul>
+        <div className='container'>
             { 
             Array.isArray(countries)? countries.map(country=>(
-                <li key={country.id}>
-                   <Link to={`/countries/${country.id}`}>{country.name}</Link>
+                <div key={country.id} className='countryCards'>
                    <img src={country.bandera} alt={country.name}></img>
+                   <h4 className='nombre'><Link to={`/countries/${country.id}`} style={{ textDecoration: 'none', color:'#ffffa4'}}>{country.name}</Link></h4>
                    <p>{country.region}</p>
-                </li>
+                 </div>
             )): <h2>Cargando...</h2>
             }
-        </ul>
+        </div>
     )
 }
 

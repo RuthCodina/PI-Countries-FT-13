@@ -1,0 +1,56 @@
+.color1 {color: #001b3b;}
+.color2 {color: #003f8a;}
+.color3 {color: #00bfff;}
+.color4 {color: #15fdc6;}
+.color5 {color: #ffffa4;}
+
+/* *{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+} */
+
+.form{
+    border-radius: 8px;
+    background:  rgba(0, 0, 0, 0.5);
+    padding:30 px;
+    margin:auto;
+    margin-top: 100px;
+    font-family: 'Alegreya';
+    color: #ffffa4;
+    font-size: 20px;
+    overflow: hidden;
+}
+
+.form h1{
+    padding:0px;
+    color:#001b3b;
+}
+
+.form label{
+    padding:5px;
+}
+
+.form input{
+    width: 20;
+    padding: 3px;
+    align-items: center;
+    border: 1px solid #001b3b;
+    margin: 1px;
+}
+.form button{
+    padding:3px;
+    font-family: 'Alegreya';
+    font-size: 15px;
+    margin: 2px;
+}
+
+.form button:hover,
+.form button:active{
+    color:#ffffa4;
+    background: #003f8a;
+}
+.form .formHijo{
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}

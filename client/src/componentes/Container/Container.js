@@ -1,20 +1,22 @@
 
 import React from 'react';
 import {connect} from "react-redux";
-import {findCountries} from '../actions';
+import {findCountries} from '../../actions/index';
 import { Link } from 'react-router-dom';
 
 
 function Container(props){
     return(
-     <ul>
+     <div className='container'>
         { props.search&&props.search.map((el)=>(
-             <div key={el.id}>
-                <Link to={`/countries/${el.id}`}>{el.name}</Link>
+             <div key={el.id} className='countryCards'>
+                <img src={el.bandera} alt={el.name}></img>
+                <h4 className='nombre'><Link to={`/countries/${el.id}`} style={{ textDecoration: 'none', color:'#ffffa4'}}>{el.name}</Link></h4> 
+                <p>{el.region}</p>
              </div>
          ))}
 
-     </ul>
+     </div>
     )
 }
 
@@ -29,7 +31,7 @@ function mapStateToProps(state) {
   function mapDispatchToProps(dispatch) {
     return {
       findCountry: name => dispatch(findCountries(name)),
-      // clearCountries: () => dispatch(clearCountries()),
+     
     };
   }
 
