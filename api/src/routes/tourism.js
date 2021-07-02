@@ -12,7 +12,7 @@ router.post('/', async (req, res)=>{
      
     const { nombre, duracion, temporada, dificultad, codigoPais}= req.body;
 
-    const tourismCreated=await Tourism.create({ // áca cuando crea o encuentra devuelve un arreglo.
+    const tourismCreated= await Tourism.create({ // áca cuando crea o encuentra devuelve un arreglo.
         
           nombre,
           duracion,

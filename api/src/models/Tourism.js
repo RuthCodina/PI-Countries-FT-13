@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
     // },
     nombre:{
       type: DataTypes.STRING,
-      // unique:true,
+      unique:true,
       allowNull: false
     },
     duracion:{
