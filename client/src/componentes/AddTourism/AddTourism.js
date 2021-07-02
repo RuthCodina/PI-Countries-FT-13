@@ -46,7 +46,7 @@ function AddTourism(props){
             setError({...error, temporada: "Escoge una temporada de la lista"})
         }
         else if(!input.dificultad){
-            setError({...error, dificultad: "Escoge una actividad de la lista"})
+            setError({...error, dificultad: "Escoge una dificultad de la lista"})
         }
         else if (input.codigoPais===[]){
             setError({...error, codigoPais: "Escoge al menos un país de la lista"})
@@ -103,7 +103,7 @@ function AddTourism(props){
            </div>
            <div>
             <label htmlFor='Temporada'>Temporada del Año de la Actividad: </label>
-                <select id='Temporada' onChange={handleSeason} value={input.temporada}>
+                <select id='Temporada' onChange={handleSeason} value={input.temporada} className={error.temporada && 'warning'}>
                     <option  defaultValue>selecciona la cantidad de horas</option>
                     <option value='summer'>Summer</option>
                     <option value='autumn'>Autumn</option>
@@ -114,7 +114,7 @@ function AddTourism(props){
            </div>
             <div>
                 <label htmlFor='Dificultad'>Dificultad Actividad: </label>
-                <select id='Dificultad' onChange={handleDificultad} value={input.dificultad} className={error.dificultad && 'warning'}>
+                <select id='Dificultad' onChange={handleDificultad} value={input.dificultad} required='required' className={error.dificultad && 'warning'}>
                     <option defaultValue>selecciona la Dificultad</option>
                     <option value='Alta'>Alta</option>
                     <option value='Medio Alta'>Medio Alta</option>
@@ -127,7 +127,7 @@ function AddTourism(props){
            <div>
               <label htmlFor='Paises'>Selecciona el Código de los Países a Agregar: </label><br></br>
               <button onClick={handleTourism}>trae Paises</button>
-              <select id='Paises' onChange={handlePaises} value={input.codigoPais}>
+              <select id='Paises' onChange={handlePaises} value={input.codigoPais} className={error.duracion && 'warning'}>
                     <option defaultValue>selecciona el código del país</option>
                 {
                     props.allCountries && props.allCountries.map((el) => (

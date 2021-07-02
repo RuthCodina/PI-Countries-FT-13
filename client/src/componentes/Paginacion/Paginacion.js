@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from "react"
 import {Link} from 'react-router-dom';
 import './paginacion.css'; 
-// import {useDispatch, useSelector} from 'react-redux';
+
 
 function renderData(countries){
     return(
         <div className='container'>
             { 
-            Array.isArray(countries)? countries.map(country=>(
+            countries? countries.map(country=>(
                 <div key={country.id} className='countryCards'>
                    <img src={country.bandera} alt={country.name}></img>
                    <h4 className='nombre'><Link to={`/countries/${country.id}`} style={{ textDecoration: 'none', color:'#ffffa4'}}>{country.name}</Link></h4>
@@ -24,7 +24,7 @@ function Paginacion(){
 
   const[countries, setCountries]=useState([])
   const[currentPage, setCurrentPage]=useState(1)
-  const[countriesPerPage, setCountriesPerPage]=useState(10)
+  let countriesPerPage = 10
 
   const[pageNumberLimit, setPageNumberLimit]=useState(5)
   const[maxPageNumberLimit, setmaxPageNumberLimit]=useState(5)
@@ -45,18 +45,36 @@ function Paginacion(){
   }
 
   function handleNextBtn(){
-      setCurrentPage(currentPage+1)
+    if(currentPage===25){
+        setPageNumberLimit(maxPageNumberLimit)
+        setminPageNumberLimit(minPageNumberLimit)
+    }
+     else { setCurrentPage(currentPage+1)
       if(currentPage+1>maxPageNumberLimit){
           setmaxPageNumberLimit(maxPageNumberLimit+ pageNumberLimit);
           setminPageNumberLimit(minPageNumberLimit+ pageNumberLimit);
       }
+    }
   };
 
+  function hidePrevBtn(){
+    if(currentPage===1){
+
+    }
+  }
+
   function handlePrevBtn(){
-    setCurrentPage(currentPage-1)
-    if((currentPage-1)% pageNumberLimit ===0){
+    if(currentPage<=1){
+        setPageNumberLimit(maxPageNumberLimit)
+        setminPageNumberLimit(minPageNumberLimit)
+    }
+    
+    else{
+        setCurrentPage(currentPage-1)
+        if((currentPage-1)% pageNumberLimit ===0){
         setmaxPageNumberLimit(maxPageNumberLimit- pageNumberLimit);
         setminPageNumberLimit(minPageNumberLimit- pageNumberLimit);
+    }
     }
 };
 
@@ -83,9 +101,9 @@ function Paginacion(){
     return(
       <>
        <ul className='pageNumbers'>
-       <li><button onClick={handlePrevBtn}> prev</button></li>
+       {currentPage>1?<li><button onClick={handlePrevBtn}> prev</button></li>:null}
            {renderPageNumber}
-       <li><button onClick={handleNextBtn}>next</button></li>
+       {currentPage<25?<li><button onClick={handleNextBtn}>next</button></li>:null}
        </ul>
        {renderData(currentCountries)}
 

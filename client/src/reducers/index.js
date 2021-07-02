@@ -48,7 +48,9 @@ const initialState = {
           countrySearched: state.countrySearched.slice().sort(function(a,b){
                           if(a.name < b.name) return -1
                           if(b.name < a.name) return 1 
-            return 0}).reverse()         
+                          return 0
+                          // return (a.name - b.name)
+                         }).reverse()         
          } 
       case SET_COUNTRIES_BY_INHABITANS_ASC:
          return{
@@ -68,7 +70,7 @@ const initialState = {
           return{
            ...state,
            countrySearched: state.allCountries.filter((country)=>{
-                            return  country.tourisms.some((el)=> el.nombre === action.tourism)})   
+                          return country.tourisms.some((el)=> el.nombre === action.tourism)})   
            }  
     default:
       return state;
