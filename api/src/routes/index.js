@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const fetch= require('node-fetch');
-const server = require("express").Router();
+// const server = require("express").Router();
 const countries= require('./countries')
 const tourism= require('./tourism')
 const { Country } = require('../db')
