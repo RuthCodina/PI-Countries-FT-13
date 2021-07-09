@@ -6,8 +6,7 @@ const tourism= require('./tourism')
 const { Country } = require('../db')
 const {Tourism}= require('../db')
 
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
+
 
 fetch('https://restcountries.eu/rest/v2/all')
  .then(response => response.json())
@@ -29,7 +28,6 @@ const router = Router();
 
 router.use('/countries', countries);
 router.use('/activity', tourism);
-
 
 
 
